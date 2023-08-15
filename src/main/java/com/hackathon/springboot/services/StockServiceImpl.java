@@ -23,6 +23,12 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
+    public List<Stock> getStockByStockTicker(String stock_ticker) {
+        return stockRepository.getStockByStockTicker(stock_ticker);
+    }
+
+
+    @Override
     public Stock addStock(Stock stock) {
         return stockRepository.save(stock);
     }

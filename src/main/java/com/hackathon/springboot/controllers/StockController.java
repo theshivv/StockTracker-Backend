@@ -22,10 +22,17 @@ public class StockController {
         return stockService.getAllStocks();
     }
 
-    @RequestMapping(path = "/stocks/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/stocks/stockticker/{stock_ticker}", method = RequestMethod.GET)
+    public List<Stock> getStocksByStockTicker(@PathVariable String stock_ticker){
+        return stockService.getStockByStockTicker(stock_ticker);
+    }
+
+    @RequestMapping(path = "/stocks/id/{id}", method = RequestMethod.GET)
     public Stock getStockbyID(@PathVariable String id){
         return stockService.getStockbyId(Integer.parseInt(id));
     }
+
+
 
     @RequestMapping(path = "/stocks", method = RequestMethod.POST)
     public Stock addStock(@RequestBody Stock stock){

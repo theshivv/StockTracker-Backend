@@ -32,10 +32,17 @@ public class PortfolioStockController {
         return portfolioStockService.getPStockByStockTicker(stock_ticker);
     }
 
+    @RequestMapping(path = "/pstocks/stockquantity/{stock_ticker}", method = RequestMethod.GET)
+    public Integer getStockQuantityByStockTicker(@PathVariable String stock_ticker){
+        return portfolioStockService.getStockQuantityByStockTicker(stock_ticker);
+    }
+
     @RequestMapping(path = "/pstocks/id/{id}", method = RequestMethod.GET)
     public PortfolioStock getStockbyID(@PathVariable String id){
         return portfolioStockService.getPStockbyId(Integer.parseInt(id));
     }
+
+
 
 
 

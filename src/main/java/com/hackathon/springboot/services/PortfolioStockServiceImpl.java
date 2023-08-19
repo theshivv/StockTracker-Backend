@@ -1,9 +1,7 @@
 package com.hackathon.springboot.services;
 
 import com.hackathon.springboot.entities.PortfolioStock;
-import com.hackathon.springboot.entities.Stock;
 import com.hackathon.springboot.repositories.PortfolioStockRepository;
-import com.hackathon.springboot.repositories.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +28,16 @@ public class PortfolioStockServiceImpl implements PortfolioStockService {
         return portfolioStockRepository.getPStockByStockTicker(stock_ticker);
     }
 
+    @Override
+    public Integer getStockQuantityByStockTicker(String stock_ticker) {
+        return portfolioStockRepository.getStockQuantityByStockTicker(stock_ticker);
+    }
 
     @Override
     public PortfolioStock addPStock(PortfolioStock portfolioStock) {
         return portfolioStockRepository.save(portfolioStock);
     }
+
 
     @Override
     public PortfolioStock updatePStock(PortfolioStock portfolioStock) {

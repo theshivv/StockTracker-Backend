@@ -33,6 +33,12 @@ public class PortfolioStockServiceImpl implements PortfolioStockService {
         return portfolioStockRepository.getStockQuantityByStockTicker(stock_ticker);
     }
 
+
+    @Override
+    public List<PortfolioStock> getHoldings(){
+        return portfolioStockRepository.getHoldings();
+    }
+
     @Override
     public PortfolioStock addPStock(PortfolioStock portfolioStock) {
         return portfolioStockRepository.save(portfolioStock);

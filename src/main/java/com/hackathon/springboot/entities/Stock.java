@@ -62,6 +62,9 @@ public class Stock {
     }
 
     public void setStockTicker(String stockTicker) {
+        if(stockTicker==null){
+            throw new IllegalArgumentException("stock Ticker null not allowed");
+        }
         this.stockTicker = stockTicker;
     }
 

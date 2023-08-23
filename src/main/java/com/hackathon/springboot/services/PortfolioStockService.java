@@ -1,9 +1,7 @@
 package com.hackathon.springboot.services;
 
 import com.hackathon.springboot.entities.PortfolioStock;
-import com.hackathon.springboot.entities.Stock;
 
-import javax.sound.sampled.Port;
 import java.util.List;
 
 public interface PortfolioStockService {
@@ -15,6 +13,8 @@ public interface PortfolioStockService {
     public List<PortfolioStock> getPStockByStockTicker(String stock_ticker);
 
     public  Integer getStockQuantityByStockTicker(String stock_ticker);
+
+    public List<PortfolioStock> getHoldings();
 
     public PortfolioStock addPStock(PortfolioStock portfolioStock);
 

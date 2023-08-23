@@ -2,9 +2,7 @@ package com.hackathon.springboot.controllers;
 
 
 import com.hackathon.springboot.entities.PortfolioStock;
-import com.hackathon.springboot.entities.Stock;
 import com.hackathon.springboot.services.PortfolioStockService;
-import com.hackathon.springboot.services.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +23,11 @@ public class PortfolioStockController {
     @RequestMapping(path = "/pstocks", method = RequestMethod.GET)
     public List<PortfolioStock> getStocks(){
         return portfolioStockService.getAllPStocks();
+    }
+
+    @RequestMapping(path="/holdings",method = RequestMethod.GET)
+    public List<PortfolioStock> getHoldings(){
+        return portfolioStockService.getHoldings();
     }
 
     @RequestMapping(path = "/pstocks/stockticker/{stock_ticker}", method = RequestMethod.GET)

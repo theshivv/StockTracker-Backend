@@ -13,8 +13,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-
     @RequestMapping(path="/users/id/{id}",method = RequestMethod.GET)
     public User getUser(@PathVariable String id){
         return userService.getUserById(Integer.parseInt(id));

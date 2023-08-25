@@ -46,9 +46,6 @@ public class PortfolioStockController {
     }
 
 
-
-
-
     @RequestMapping(path = "/pstocks", method = RequestMethod.POST)
     public PortfolioStock addStock(@RequestBody PortfolioStock portfolioStock){
         return portfolioStockService.addPStock(portfolioStock);

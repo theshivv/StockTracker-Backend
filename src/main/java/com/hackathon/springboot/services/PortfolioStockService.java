@@ -3,6 +3,8 @@ package com.hackathon.springboot.services;
 import com.hackathon.springboot.entities.PortfolioStock;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public interface PortfolioStockService {
 
@@ -21,4 +23,9 @@ public interface PortfolioStockService {
     public PortfolioStock updatePStock(PortfolioStock portfolioStock);
 
     public void deletePStock(int id);
+
+    //investment
+    Integer getTotalInvestment();
+
+    Map<String, Double> getStockInvestmentByStockticker();
 }

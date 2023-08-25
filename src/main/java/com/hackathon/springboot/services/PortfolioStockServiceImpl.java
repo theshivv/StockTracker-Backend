@@ -5,7 +5,10 @@ import com.hackathon.springboot.repositories.PortfolioStockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 
 @Service
@@ -54,5 +57,24 @@ public class PortfolioStockServiceImpl implements PortfolioStockService {
     public void deletePStock(int id) {
 //        Stock entity = stockRepository.findById(id).get();
         portfolioStockRepository.delete(portfolioStockRepository.findById(id).get());
+    }
+
+    //investment
+    @Override
+    public Integer getTotalInvestment(){
+        return portfolioStockRepository.getTotalInvestment();
+    }
+
+    @Override
+    public Map<String, Double> getStockInvestmentByStockticker(){
+        List<Object[]> results= portfolioStockRepository.getStockInvestmentByStockTicker();
+        Map<String, Double> investments= new HashMap<>();
+        for( Object[] result : results){
+            String stockTicker = (String) result[0];
+            Double investment = (Double) result[1];
+            investments.put(stockTicker,investment);
+        }
+
+        return investments;
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -45,6 +47,16 @@ public class PortfolioStockController {
         return portfolioStockService.getPStockbyId(Integer.parseInt(id));
     }
 
+
+    @RequestMapping(path= "/investment",method = RequestMethod.GET)
+    public Integer getTotalInvestment(){
+        return portfolioStockService.getTotalInvestment();
+    }
+
+    @RequestMapping(path="/investment/stock_ticker",method = RequestMethod.GET)
+    public Map<String, Double> getInvestmentByStockTicker(){
+        return portfolioStockService.getStockInvestmentByStockticker();
+    }
 
 
 
